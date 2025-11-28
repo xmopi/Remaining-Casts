@@ -98,6 +98,7 @@ public class RuneIds {
         RuneMap.put(ItemID.SLUG2_RUNE_FIRE, new Integer[] {ItemID.FIRERUNE});
         RuneMap.put(ItemID.FAKE_FIRERUNE, new Integer[] {ItemID.FIRERUNE});
         RuneMap.put(ItemID.NZONE_FIRERUNE, new Integer[] {ItemID.FIRERUNE});
+        RuneMap.put(ItemID.SUNFIRERUNE, new Integer[] {ItemID.FIRERUNE});
 
         RuneMap.put(ItemID.ROGUETRADER_MINDRUNE, new Integer[] {ItemID.MINDRUNE});
         RuneMap.put(ItemID.SLUG2_RUNE_MIND, new Integer[] {ItemID.MINDRUNE});
@@ -138,6 +139,7 @@ public class RuneIds {
         RuneMap.put(ItemID.SMOKERUNE, new Integer[] {ItemID.AIRRUNE, ItemID.FIRERUNE});
         RuneMap.put(ItemID.STEAMRUNE, new Integer[] {ItemID.WATERRUNE, ItemID.FIRERUNE});
         RuneMap.put(ItemID.LAVARUNE, new Integer[] {ItemID.EARTHRUNE, ItemID.FIRERUNE});
+        RuneMap.put(ItemID.AETHERRUNE, new Integer[] {ItemID.COSMICRUNE, ItemID.SOULRUNE});
 
         // Staffs
         StaffMap.put(ItemID.STAFF_OF_AIR, ItemID.AIRRUNE);
@@ -195,6 +197,7 @@ public class RuneIds {
         // Tomes
         TomeMap.put(ItemID.TOME_OF_WATER, ItemID.WATERRUNE);
         TomeMap.put(ItemID.TOME_OF_FIRE, ItemID.FIRERUNE);
+        TomeMap.put(ItemID.TOME_OF_EARTH, ItemID.EARTHRUNE);
 
         // Ingredients
         IngredientMap.put(ItemID.STAFFORB, ItemID.STAFFORB);
