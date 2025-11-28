@@ -7,7 +7,6 @@ import com.salverrs.RemainingCasts.Util.CastUtils;
 import com.salverrs.RemainingCasts.Util.RuneIds;
 import lombok.Getter;
 import lombok.Setter;
-import net.runelite.api.ItemComposition;
 import net.runelite.client.game.ItemManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.ui.overlay.infobox.InfoBox;
@@ -15,7 +14,6 @@ import net.runelite.client.ui.overlay.infobox.InfoBox;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.time.Instant;
-import java.util.HashMap;
 import java.util.Map;
 
 @Getter

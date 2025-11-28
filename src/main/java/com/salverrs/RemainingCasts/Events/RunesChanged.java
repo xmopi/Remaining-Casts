@@ -2,7 +2,6 @@ package com.salverrs.RemainingCasts.Events;
 
 import com.salverrs.RemainingCasts.Model.RuneChanges;
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
 public class RunesChanged {
