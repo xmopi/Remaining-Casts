@@ -233,7 +233,7 @@ public class SpellIds {
         Spells.add(new SpellInfo("Resurrect Lesser Zombie", 1300, new SpellCost(new int[] {ItemID.MINDRUNE, ItemID.AIRRUNE, ItemID.COSMICRUNE}, new int[] {5, 10, 1})));
         Spells.add(new SpellInfo("Salve Graveyard Teleport", SpriteID.MagicNecroOn.SALVE_GRAVEYARD_TELEPORT, new SpellCost(new int[] {ItemID.LAWRUNE, ItemID.SOULRUNE}, new int[] {1, 2})));
         Spells.add(new SpellInfo("Adept Reanimation", SpriteID.MagicNecroOn.ADEPT_REANIMATION, new SpellCost(new int[] {ItemID.BODYRUNE, ItemID.NATURERUNE, ItemID.SOULRUNE}, new int[] {4, 3, 1})));
-        Spells.add(new SpellInfo("Inferior Demonbane", SpriteID.MagicNecroOn.INFERIOR_DEMONBANE, new SpellCost(new int[] {ItemID.CHAOSRUNE, ItemID.FIRERUNE}, new int[] {1, 4})));
+        Spells.add(new SpellInfo("Inferior Demonbane", SpriteID.MagicNecroOn.INFERIOR_DEMONBANE, new SpellCost(new int[] {ItemID.CHAOSRUNE, ItemID.FIRERUNE}, new int[] {1, 3})));
         Spells.add(new SpellInfo("Shadow Veil", SpriteID.MagicNecroOn.SHADOW_VEIL, new SpellCost(new int[] {ItemID.EARTHRUNE, ItemID.FIRERUNE, ItemID.COSMICRUNE}, new int[] {5, 5, 5})));
         Spells.add(new SpellInfo("Fenkenstrain's Castle Teleport", SpriteID.MagicNecroOn.FENKENSTRAINS_CASTLE_TELEPORT, new SpellCost(new int[] {ItemID.LAWRUNE, ItemID.SOULRUNE, ItemID.EARTHRUNE}, new int[] {1, 1, 1})));
         Spells.add(new SpellInfo("Dark Lure", SpriteID.MagicNecroOn.DARK_LURE, new SpellCost(new int[] {ItemID.DEATHRUNE, ItemID.NATURERUNE}, new int[] {1, 1})));
@@ -243,7 +243,7 @@ public class SpellIds {
         Spells.add(new SpellInfo("Resurrect Superior Zombie", 2983, new SpellCost(new int[] {ItemID.DEATHRUNE, ItemID.EARTHRUNE, ItemID.COSMICRUNE}, new int[] {5, 10, 1})));
         Spells.add(new SpellInfo("Mark of Darkness", SpriteID.MagicNecroOn.MARK_OF_DARKNESS, new SpellCost(new int[] {ItemID.SOULRUNE, ItemID.COSMICRUNE}, new int[] {1, 1})));
         Spells.add(new SpellInfo("West Ardougne Teleport", SpriteID.MagicNecroOn.WEST_ARDOUGNE_TELEPORT, new SpellCost(new int[] {ItemID.LAWRUNE, ItemID.SOULRUNE}, new int[] {2, 2})));
-        Spells.add(new SpellInfo("Superior Demonbane", SpriteID.MagicNecroOn.SUPERIOR_DEMONBANE, new SpellCost(new int[] {ItemID.SOULRUNE, ItemID.FIRERUNE}, new int[] {1, 8})));
+        Spells.add(new SpellInfo("Superior Demonbane", SpriteID.MagicNecroOn.SUPERIOR_DEMONBANE, new SpellCost(new int[] {ItemID.SOULRUNE, ItemID.FIRERUNE}, new int[] {1, 5})));
         Spells.add(new SpellInfo("Lesser Corruption", SpriteID.MagicNecroOn.LESSER_CORRUPTION, new SpellCost(new int[] {ItemID.DEATHRUNE, ItemID.SOULRUNE}, new int[] {1, 2})));
         Spells.add(new SpellInfo("Harmony Island Teleport", SpriteID.MagicNecroOn.HARMONY_ISLAND_TELEPORT, new SpellCost(new int[] {ItemID.LAWRUNE, ItemID.SOULRUNE, ItemID.NATURERUNE}, new int[] {1, 1, 1})));
         Spells.add(new SpellInfo("Vile Vigour", SpriteID.MagicNecroOn.VILE_VIGOUR, new SpellCost(new int[] {ItemID.SOULRUNE, ItemID.AIRRUNE}, new int[] {1, 3})));
@@ -257,7 +257,7 @@ public class SpellIds {
         Spells.add(new SpellInfo("Resurrect Crops", SpriteID.MagicNecroOn.RESURRECT_CROPS, new SpellCost(new int[] {ItemID.SOULRUNE, ItemID.NATURERUNE, ItemID.BLOODRUNE, ItemID.EARTHRUNE}, new int[] {8, 12, 8, 25})));
         Spells.add(new SpellInfo("Undead Grasp", SpriteID.MagicNecroOn.UNDEAD_GRASP, new SpellCost(new int[] {ItemID.BLOODRUNE, ItemID.FIRERUNE}, new int[] {1, 12})));
         Spells.add(new SpellInfo("Death Charge", SpriteID.MagicNecroOn.DEATH_CHARGE, new SpellCost(new int[] {ItemID.DEATHRUNE, ItemID.BLOODRUNE, ItemID.SOULRUNE}, new int[] {1, 1, 1})));
-        Spells.add(new SpellInfo("Dark Demonbane", SpriteID.MagicNecroOn.DARK_DEMONBANE, new SpellCost(new int[] {ItemID.SOULRUNE, ItemID.FIRERUNE}, new int[] {2, 12})));
+        Spells.add(new SpellInfo("Dark Demonbane", SpriteID.MagicNecroOn.DARK_DEMONBANE, new SpellCost(new int[] {ItemID.SOULRUNE, ItemID.FIRERUNE}, new int[] {2, 7})));
         Spells.add(new SpellInfo("Barrows Teleport", SpriteID.MagicNecroOn.BARROWS_TELEPORT, new SpellCost(new int[] {ItemID.LAWRUNE, ItemID.SOULRUNE, ItemID.BLOODRUNE}, new int[] {2, 2, 1})));
         Spells.add(new SpellInfo("Demonic Offering", SpriteID.MagicNecroOn.DEMONIC_OFFERING, new SpellCost(new int[] {ItemID.SOULRUNE, ItemID.WRATHRUNE}, new int[] {1, 1})));
         Spells.add(new SpellInfo("Greater Corruption", SpriteID.MagicNecroOn.GREATER_CORRUPTION, new SpellCost(new int[] {ItemID.BLOODRUNE, ItemID.SOULRUNE}, new int[] {1, 3})));
