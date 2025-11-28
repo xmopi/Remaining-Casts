@@ -112,7 +112,7 @@ public class SpellIds {
         Spells.add(new SpellInfo("Charge Air Orb", SpriteID.Magicon.CHARGE_AIR_ORB, new SpellCost(new int[] {ItemID.COSMICRUNE, ItemID.AIRRUNE, ItemID.STAFFORB}, new int[] {3, 30, 1})));
         Spells.add(new SpellInfo("Vulnerability", SpriteID.Magicon.VULNERABILITY, new SpellCost(new int[] {ItemID.SOULRUNE, ItemID.WATERRUNE, ItemID.EARTHRUNE}, new int[] {1, 5, 5})));
         Spells.add(new SpellInfo("Lvl-5 Enchant", SpriteID.Magicon.LVL_5_ENCHANT, new SpellCost(new int[] {ItemID.COSMICRUNE, ItemID.WATERRUNE, ItemID.EARTHRUNE}, new int[] {1, 15, 15})));
-        Spells.add(new SpellInfo("Kourend Castle Teleport", SpriteID.Magicon2.TELEPORT_TO_KOUREND, new SpellCost(new int[] {ItemID.LAWRUNE, ItemID.SOULRUNE, ItemID.WATERRUNE, ItemID.FIRERUNE}, new int[] {2, 2, 4, 5})));
+        Spells.add(new SpellInfo("Kourend Castle Teleport", SpriteID.Magicon2.TELEPORT_TO_KOUREND, new SpellCost(new int[] {ItemID.LAWRUNE, ItemID.WATERRUNE, ItemID.FIRERUNE}, new int[] {2, 1, 1})));
         Spells.add(new SpellInfo("Earth Wave", SpriteID.Magicon.EARTH_WAVE, new SpellCost(new int[] {ItemID.BLOODRUNE, ItemID.EARTHRUNE, ItemID.AIRRUNE}, new int[] {1, 7, 5})));
         Spells.add(new SpellInfo("Enfeeble", SpriteID.Magicon.ENFEEBLE, new SpellCost(new int[] {ItemID.SOULRUNE, ItemID.WATERRUNE, ItemID.EARTHRUNE}, new int[] {1, 8, 8})));
         Spells.add(new SpellInfo("Teleother Lumbridge", SpriteID.Magicon2.TELEOTHER_LUMBRIDGE, new SpellCost(new int[] {ItemID.LAWRUNE, ItemID.SOULRUNE, ItemID.EARTHRUNE}, new int[] {1, 1, 1})));
