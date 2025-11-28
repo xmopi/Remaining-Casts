@@ -151,7 +151,7 @@ public class SpellIds {
         Spells.add(new SpellInfo("Dareeyak Teleport", SpriteID.Magicon2.DAREEYAK_TELEPORT, new SpellCost(new int[] {ItemID.LAWRUNE, ItemID.AIRRUNE, ItemID.FIRERUNE}, new int[] {2, 2, 3})));
         Spells.add(new SpellInfo("Blood Blitz", SpriteID.Magicon2.BLOOD_BLITZ, new SpellCost(new int[] {ItemID.DEATHRUNE, ItemID.BLOODRUNE}, new int[] {2, 4})));
         Spells.add(new SpellInfo("Ice Blitz", SpriteID.Magicon2.ICE_BLITZ, new SpellCost(new int[] {ItemID.DEATHRUNE, ItemID.BLOODRUNE, ItemID.WATERRUNE}, new int[] {2, 2, 3})));
-        Spells.add(new SpellInfo("Carrallangar Teleport", SpriteID.Magicon2.CARRALLANGAR_TELEPORT, new SpellCost(new int[] {ItemID.LAWRUNE, ItemID.SOULRUNE}, new int[] {2, 2})));
+        Spells.add(new SpellInfo("Carrallanger Teleport", SpriteID.Magicon2.CARRALLANGAR_TELEPORT, new SpellCost(new int[] {ItemID.LAWRUNE, ItemID.SOULRUNE}, new int[] {2, 2})));
         Spells.add(new SpellInfo("Teleport to Target", SpriteID.Magicon2.TELEPORT_TO_BOUNTY_TARGET, new SpellCost(new int[] {ItemID.LAWRUNE, ItemID.DEATHRUNE, ItemID.CHAOSRUNE}, new int[] {1, 1, 1})));
         Spells.add(new SpellInfo("Smoke Barrage", SpriteID.Magicon2.SMOKE_BARRAGE, new SpellCost(new int[] {ItemID.DEATHRUNE, ItemID.BLOODRUNE, ItemID.AIRRUNE, ItemID.FIRERUNE}, new int[] {4, 2, 4, 4})));
         Spells.add(new SpellInfo("Shadow Barrage", SpriteID.Magicon2.SHADOW_BARRAGE, new SpellCost(new int[] {ItemID.DEATHRUNE, ItemID.BLOODRUNE, ItemID.SOULRUNE, ItemID.AIRRUNE}, new int[] {4, 2, 3, 4})));
