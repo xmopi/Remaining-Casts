@@ -1,6 +1,6 @@
 package com.salverrs.RemainingCasts.Util;
 
-import net.runelite.api.ItemID;
+import net.runelite.api.gameval.ItemID;
 
 import java.util.*;
 
@@ -59,187 +59,187 @@ public class RuneIds {
     static
     {
         // Regular runes
-        RuneMap.put(ItemID.AIR_RUNE, new Integer[] {ItemID.AIR_RUNE});
-        RuneMap.put(ItemID.WATER_RUNE, new Integer[] {ItemID.WATER_RUNE});
-        RuneMap.put(ItemID.EARTH_RUNE, new Integer[] {ItemID.EARTH_RUNE});
-        RuneMap.put(ItemID.FIRE_RUNE, new Integer[] {ItemID.FIRE_RUNE});
-        RuneMap.put(ItemID.MIND_RUNE, new Integer[] {ItemID.MIND_RUNE});
-        RuneMap.put(ItemID.BODY_RUNE, new Integer[] {ItemID.BODY_RUNE});
-        RuneMap.put(ItemID.COSMIC_RUNE, new Integer[] {ItemID.COSMIC_RUNE});
-        RuneMap.put(ItemID.CHAOS_RUNE, new Integer[] {ItemID.CHAOS_RUNE});
-        RuneMap.put(ItemID.NATURE_RUNE, new Integer[] {ItemID.NATURE_RUNE});
-        RuneMap.put(ItemID.LAW_RUNE, new Integer[] {ItemID.LAW_RUNE});
-        RuneMap.put(ItemID.DEATH_RUNE, new Integer[] {ItemID.DEATH_RUNE});
-        RuneMap.put(ItemID.ASTRAL_RUNE, new Integer[] {ItemID.ASTRAL_RUNE});
-        RuneMap.put(ItemID.BLOOD_RUNE, new Integer[] {ItemID.BLOOD_RUNE});
-        RuneMap.put(ItemID.SOUL_RUNE, new Integer[] {ItemID.SOUL_RUNE});
-        RuneMap.put(ItemID.WRATH_RUNE, new Integer[] {ItemID.WRATH_RUNE});
+        RuneMap.put(ItemID.AIRRUNE, new Integer[] {ItemID.AIRRUNE});
+        RuneMap.put(ItemID.WATERRUNE, new Integer[] {ItemID.WATERRUNE});
+        RuneMap.put(ItemID.EARTHRUNE, new Integer[] {ItemID.EARTHRUNE});
+        RuneMap.put(ItemID.FIRERUNE, new Integer[] {ItemID.FIRERUNE});
+        RuneMap.put(ItemID.MINDRUNE, new Integer[] {ItemID.MINDRUNE});
+        RuneMap.put(ItemID.BODYRUNE, new Integer[] {ItemID.BODYRUNE});
+        RuneMap.put(ItemID.COSMICRUNE, new Integer[] {ItemID.COSMICRUNE});
+        RuneMap.put(ItemID.CHAOSRUNE, new Integer[] {ItemID.CHAOSRUNE});
+        RuneMap.put(ItemID.NATURERUNE, new Integer[] {ItemID.NATURERUNE});
+        RuneMap.put(ItemID.LAWRUNE, new Integer[] {ItemID.LAWRUNE});
+        RuneMap.put(ItemID.DEATHRUNE, new Integer[] {ItemID.DEATHRUNE});
+        RuneMap.put(ItemID.ASTRALRUNE, new Integer[] {ItemID.ASTRALRUNE});
+        RuneMap.put(ItemID.BLOODRUNE, new Integer[] {ItemID.BLOODRUNE});
+        RuneMap.put(ItemID.SOULRUNE, new Integer[] {ItemID.SOULRUNE});
+        RuneMap.put(ItemID.WRATHRUNE, new Integer[] {ItemID.WRATHRUNE});
 
         // Regular runes (variations)
-        RuneMap.put(ItemID.AIR_RUNE_6422, new Integer[] {ItemID.AIR_RUNE});
-        RuneMap.put(ItemID.AIR_RUNE_7558, new Integer[] {ItemID.AIR_RUNE});
-        RuneMap.put(ItemID.AIR_RUNE_9693, new Integer[] {ItemID.AIR_RUNE});
-        RuneMap.put(ItemID.AIR_RUNE_11688, new Integer[] {ItemID.AIR_RUNE});
-        RuneMap.put(ItemID.AIR_RUNE_NZ, new Integer[] {ItemID.AIR_RUNE});
+        RuneMap.put(ItemID.ROGUETRADER_AIRRUNE, new Integer[] {ItemID.AIRRUNE});
+        RuneMap.put(ItemID._100GUIDE_AIRRUNE_DUM, new Integer[] {ItemID.AIRRUNE});
+        RuneMap.put(ItemID.SLUG2_RUNE_AIR, new Integer[] {ItemID.AIRRUNE});
+        RuneMap.put(ItemID.FAKE_AIRRUNE, new Integer[] {ItemID.AIRRUNE});
+        RuneMap.put(ItemID.NZONE_AIRRUNE, new Integer[] {ItemID.AIRRUNE});
 
-        RuneMap.put(ItemID.WATER_RUNE_6424, new Integer[] {ItemID.WATER_RUNE});
-        RuneMap.put(ItemID.WATER_RUNE_7556, new Integer[] {ItemID.WATER_RUNE});
-        RuneMap.put(ItemID.WATER_RUNE_9691, new Integer[] {ItemID.WATER_RUNE});
-        RuneMap.put(ItemID.WATER_RUNE_11687, new Integer[] {ItemID.WATER_RUNE});
-        RuneMap.put(ItemID.WATER_RUNE_NZ, new Integer[] {ItemID.WATER_RUNE});
+        RuneMap.put(ItemID.ROGUETRADER_WATERRUNE, new Integer[] {ItemID.WATERRUNE});
+        RuneMap.put(ItemID._100GUIDE_WATERRUNE_DUM, new Integer[] {ItemID.WATERRUNE});
+        RuneMap.put(ItemID.SLUG2_RUNE_WATER, new Integer[] {ItemID.WATERRUNE});
+        RuneMap.put(ItemID.FAKE_WATERRUNE, new Integer[] {ItemID.WATERRUNE});
+        RuneMap.put(ItemID.NZONE_WATERRUNE, new Integer[] {ItemID.WATERRUNE});
 
-        RuneMap.put(ItemID.EARTH_RUNE_6426, new Integer[] {ItemID.EARTH_RUNE});
-        RuneMap.put(ItemID.EARTH_RUNE_9695, new Integer[] {ItemID.EARTH_RUNE});
-        RuneMap.put(ItemID.EARTH_RUNE_11689, new Integer[] {ItemID.EARTH_RUNE});
-        RuneMap.put(ItemID.EARTH_RUNE_NZ, new Integer[] {ItemID.EARTH_RUNE});
+        RuneMap.put(ItemID.ROGUETRADER_EARTHRUNE, new Integer[] {ItemID.EARTHRUNE});
+        RuneMap.put(ItemID.SLUG2_RUNE_EARTH, new Integer[] {ItemID.EARTHRUNE});
+        RuneMap.put(ItemID.FAKE_EARTHRUNE, new Integer[] {ItemID.EARTHRUNE});
+        RuneMap.put(ItemID.NZONE_EARTHRUNE, new Integer[] {ItemID.EARTHRUNE});
 
-        RuneMap.put(ItemID.FIRE_RUNE_6428, new Integer[] {ItemID.FIRE_RUNE});
-        RuneMap.put(ItemID.FIRE_RUNE_7554, new Integer[] {ItemID.FIRE_RUNE});
-        RuneMap.put(ItemID.FIRE_RUNE_9699, new Integer[] {ItemID.FIRE_RUNE});
-        RuneMap.put(ItemID.FIRE_RUNE_11686, new Integer[] {ItemID.FIRE_RUNE});
-        RuneMap.put(ItemID.FIRE_RUNE_NZ, new Integer[] {ItemID.FIRE_RUNE});
+        RuneMap.put(ItemID.ROGUETRADER_FIRERUNE, new Integer[] {ItemID.FIRERUNE});
+        RuneMap.put(ItemID._100GUIDE_FIRERUNE_DUM, new Integer[] {ItemID.FIRERUNE});
+        RuneMap.put(ItemID.SLUG2_RUNE_FIRE, new Integer[] {ItemID.FIRERUNE});
+        RuneMap.put(ItemID.FAKE_FIRERUNE, new Integer[] {ItemID.FIRERUNE});
+        RuneMap.put(ItemID.NZONE_FIRERUNE, new Integer[] {ItemID.FIRERUNE});
 
-        RuneMap.put(ItemID.MIND_RUNE_6436, new Integer[] {ItemID.MIND_RUNE});
-        RuneMap.put(ItemID.MIND_RUNE_9697, new Integer[] {ItemID.MIND_RUNE});
-        RuneMap.put(ItemID.MIND_RUNE_11690, new Integer[] {ItemID.MIND_RUNE});
+        RuneMap.put(ItemID.ROGUETRADER_MINDRUNE, new Integer[] {ItemID.MINDRUNE});
+        RuneMap.put(ItemID.SLUG2_RUNE_MIND, new Integer[] {ItemID.MINDRUNE});
+        RuneMap.put(ItemID.FAKE_MINDRUNE, new Integer[] {ItemID.MINDRUNE});
 
-        RuneMap.put(ItemID.BODY_RUNE_6438, new Integer[] {ItemID.BODY_RUNE});
-        RuneMap.put(ItemID.BODY_RUNE_11691, new Integer[] {ItemID.BODY_RUNE});
+        RuneMap.put(ItemID.ROGUETRADER_BODYRUNE, new Integer[] {ItemID.BODYRUNE});
+        RuneMap.put(ItemID.FAKE_BODYRUNE, new Integer[] {ItemID.BODYRUNE});
 
-        RuneMap.put(ItemID.COSMIC_RUNE_11696, new Integer[] {ItemID.COSMIC_RUNE});
+        RuneMap.put(ItemID.FAKE_COSMICRUNE, new Integer[] {ItemID.COSMICRUNE});
 
-        RuneMap.put(ItemID.CHAOS_RUNE_6430, new Integer[] {ItemID.CHAOS_RUNE});
-        RuneMap.put(ItemID.CHAOS_RUNE_7560, new Integer[] {ItemID.CHAOS_RUNE});
-        RuneMap.put(ItemID.CHAOS_RUNE_11694, new Integer[] {ItemID.CHAOS_RUNE});
-        RuneMap.put(ItemID.CHAOS_RUNE_NZ, new Integer[] {ItemID.CHAOS_RUNE});
+        RuneMap.put(ItemID.ROGUETRADER_CHAOSRUNE, new Integer[] {ItemID.CHAOSRUNE});
+        RuneMap.put(ItemID._100GUIDE_CHAOSRUNE_DUM, new Integer[] {ItemID.CHAOSRUNE});
+        RuneMap.put(ItemID.FAKE_CHAOSRUNE, new Integer[] {ItemID.CHAOSRUNE});
+        RuneMap.put(ItemID.NZONE_CHAOSRUNE, new Integer[] {ItemID.CHAOSRUNE});
 
-        RuneMap.put(ItemID.NATURE_RUNE_11693, new Integer[] {ItemID.NATURE_RUNE});
+        RuneMap.put(ItemID.FAKE_NATURERUNE, new Integer[] {ItemID.NATURERUNE});
 
-        RuneMap.put(ItemID.LAW_RUNE_6434, new Integer[] {ItemID.LAW_RUNE});
-        RuneMap.put(ItemID.LAW_RUNE_11695, new Integer[] {ItemID.LAW_RUNE});
+        RuneMap.put(ItemID.ROGUETRADER_LAWRUNE, new Integer[] {ItemID.LAWRUNE});
+        RuneMap.put(ItemID.FAKE_LAWRUNE, new Integer[] {ItemID.LAWRUNE});
 
-        RuneMap.put(ItemID.DEATH_RUNE_6432, new Integer[] {ItemID.DEATH_RUNE});
-        RuneMap.put(ItemID.DEATH_RUNE_11692, new Integer[] {ItemID.DEATH_RUNE});
-        RuneMap.put(ItemID.DEATH_RUNE_NZ, new Integer[] {ItemID.DEATH_RUNE});
+        RuneMap.put(ItemID.ROGUETRADER_DEATHRUNE, new Integer[] {ItemID.DEATHRUNE});
+        RuneMap.put(ItemID.FAKE_DEATHRUNE, new Integer[] {ItemID.DEATHRUNE});
+        RuneMap.put(ItemID.NZONE_DEATHRUNE, new Integer[] {ItemID.DEATHRUNE});
 
-        RuneMap.put(ItemID.ASTRAL_RUNE_11699, new Integer[] {ItemID.ASTRAL_RUNE});
+        RuneMap.put(ItemID.FAKE_ASTRALRUNE, new Integer[] {ItemID.ASTRALRUNE});
 
-        RuneMap.put(ItemID.BLOOD_RUNE_11697, new Integer[] {ItemID.BLOOD_RUNE});
-        RuneMap.put(ItemID.BLOOD_RUNE_NZ, new Integer[] {ItemID.BLOOD_RUNE});
+        RuneMap.put(ItemID.FAKE_BLOODRUNE, new Integer[] {ItemID.BLOODRUNE});
+        RuneMap.put(ItemID.NZONE_BLOODRUNE, new Integer[] {ItemID.BLOODRUNE});
 
-        RuneMap.put(ItemID.SOUL_RUNE_11698, new Integer[] {ItemID.SOUL_RUNE});
+        RuneMap.put(ItemID.FAKE_SOULRUNE, new Integer[] {ItemID.SOULRUNE});
 
-        RuneMap.put(ItemID.WRATH_RUNE_22208, new Integer[] {ItemID.WRATH_RUNE});
+        RuneMap.put(ItemID.FAKE_WRATHRUNE, new Integer[] {ItemID.WRATHRUNE});
 
         // Combo runes
-        RuneMap.put(ItemID.MIST_RUNE, new Integer[] {ItemID.AIR_RUNE, ItemID.WATER_RUNE});
-        RuneMap.put(ItemID.DUST_RUNE, new Integer[] {ItemID.AIR_RUNE, ItemID.EARTH_RUNE});
-        RuneMap.put(ItemID.MUD_RUNE, new Integer[] {ItemID.WATER_RUNE, ItemID.EARTH_RUNE});
-        RuneMap.put(ItemID.SMOKE_RUNE, new Integer[] {ItemID.AIR_RUNE, ItemID.FIRE_RUNE});
-        RuneMap.put(ItemID.STEAM_RUNE, new Integer[] {ItemID.WATER_RUNE, ItemID.FIRE_RUNE});
-        RuneMap.put(ItemID.LAVA_RUNE, new Integer[] {ItemID.EARTH_RUNE, ItemID.FIRE_RUNE});
+        RuneMap.put(ItemID.MISTRUNE, new Integer[] {ItemID.AIRRUNE, ItemID.WATERRUNE});
+        RuneMap.put(ItemID.DUSTRUNE, new Integer[] {ItemID.AIRRUNE, ItemID.EARTHRUNE});
+        RuneMap.put(ItemID.MUDRUNE, new Integer[] {ItemID.WATERRUNE, ItemID.EARTHRUNE});
+        RuneMap.put(ItemID.SMOKERUNE, new Integer[] {ItemID.AIRRUNE, ItemID.FIRERUNE});
+        RuneMap.put(ItemID.STEAMRUNE, new Integer[] {ItemID.WATERRUNE, ItemID.FIRERUNE});
+        RuneMap.put(ItemID.LAVARUNE, new Integer[] {ItemID.EARTHRUNE, ItemID.FIRERUNE});
 
         // Staffs
-        StaffMap.put(ItemID.STAFF_OF_AIR, ItemID.AIR_RUNE);
-        StaffMap.put(ItemID.STAFF_OF_WATER, ItemID.WATER_RUNE);
-        StaffMap.put(ItemID.STAFF_OF_EARTH, ItemID.EARTH_RUNE);
-        StaffMap.put(ItemID.STAFF_OF_FIRE, ItemID.FIRE_RUNE);
+        StaffMap.put(ItemID.STAFF_OF_AIR, ItemID.AIRRUNE);
+        StaffMap.put(ItemID.STAFF_OF_WATER, ItemID.WATERRUNE);
+        StaffMap.put(ItemID.STAFF_OF_EARTH, ItemID.EARTHRUNE);
+        StaffMap.put(ItemID.STAFF_OF_FIRE, ItemID.FIRERUNE);
 
-        StaffMap.put(ItemID.AIR_BATTLESTAFF, ItemID.AIR_RUNE);
-        StaffMap.put(ItemID.WATER_BATTLESTAFF, ItemID.WATER_RUNE);
-        StaffMap.put(ItemID.EARTH_BATTLESTAFF, ItemID.EARTH_RUNE);
-        StaffMap.put(ItemID.FIRE_BATTLESTAFF, ItemID.FIRE_RUNE);
+        StaffMap.put(ItemID.AIR_BATTLESTAFF, ItemID.AIRRUNE);
+        StaffMap.put(ItemID.WATER_BATTLESTAFF, ItemID.WATERRUNE);
+        StaffMap.put(ItemID.EARTH_BATTLESTAFF, ItemID.EARTHRUNE);
+        StaffMap.put(ItemID.FIRE_BATTLESTAFF, ItemID.FIRERUNE);
 
-        StaffMap.put(ItemID.MYSTIC_AIR_STAFF, ItemID.AIR_RUNE);
-        StaffMap.put(ItemID.MYSTIC_WATER_STAFF, ItemID.WATER_RUNE);
-        StaffMap.put(ItemID.MYSTIC_EARTH_STAFF, ItemID.EARTH_RUNE);
-        StaffMap.put(ItemID.MYSTIC_FIRE_STAFF, ItemID.FIRE_RUNE);
+        StaffMap.put(ItemID.MYSTIC_AIR_STAFF, ItemID.AIRRUNE);
+        StaffMap.put(ItemID.MYSTIC_WATER_STAFF, ItemID.WATERRUNE);
+        StaffMap.put(ItemID.MYSTIC_EARTH_STAFF, ItemID.EARTHRUNE);
+        StaffMap.put(ItemID.MYSTIC_FIRE_STAFF, ItemID.FIRERUNE);
 
-        StaffMap.put(ItemID.MIST_BATTLESTAFF, ItemID.MIST_RUNE);
-        StaffMap.put(ItemID.DUST_BATTLESTAFF, ItemID.DUST_RUNE);
-        StaffMap.put(ItemID.MUD_BATTLESTAFF, ItemID.MUD_RUNE);
-        StaffMap.put(ItemID.SMOKE_BATTLESTAFF, ItemID.SMOKE_RUNE);
-        StaffMap.put(ItemID.STEAM_BATTLESTAFF, ItemID.STEAM_RUNE);
-        StaffMap.put(ItemID.LAVA_BATTLESTAFF, ItemID.LAVA_RUNE);
+        StaffMap.put(ItemID.MIST_BATTLESTAFF, ItemID.MISTRUNE);
+        StaffMap.put(ItemID.DUST_BATTLESTAFF, ItemID.DUSTRUNE);
+        StaffMap.put(ItemID.MUD_BATTLESTAFF, ItemID.MUDRUNE);
+        StaffMap.put(ItemID.SMOKE_BATTLESTAFF, ItemID.SMOKERUNE);
+        StaffMap.put(ItemID.STEAM_BATTLESTAFF, ItemID.STEAMRUNE);
+        StaffMap.put(ItemID.LAVA_BATTLESTAFF, ItemID.LAVARUNE);
 
-        StaffMap.put(ItemID.MYSTIC_MIST_STAFF, ItemID.MIST_RUNE);
-        StaffMap.put(ItemID.MYSTIC_DUST_STAFF, ItemID.DUST_RUNE);
-        StaffMap.put(ItemID.MYSTIC_MUD_STAFF, ItemID.MUD_RUNE);
-        StaffMap.put(ItemID.MYSTIC_SMOKE_STAFF, ItemID.SMOKE_RUNE);
-        StaffMap.put(ItemID.MYSTIC_STEAM_STAFF, ItemID.STEAM_RUNE);
-        StaffMap.put(ItemID.MYSTIC_LAVA_STAFF, ItemID.LAVA_RUNE);
+        StaffMap.put(ItemID.MYSTIC_MIST_BATTLESTAFF, ItemID.MISTRUNE);
+        StaffMap.put(ItemID.MYSTIC_DUST_BATTLESTAFF, ItemID.DUSTRUNE);
+        StaffMap.put(ItemID.MYSTIC_MUD_STAFF, ItemID.MUDRUNE);
+        StaffMap.put(ItemID.MYSTIC_SMOKE_BATTLESTAFF, ItemID.SMOKERUNE);
+        StaffMap.put(ItemID.MYSTIC_STEAM_BATTLESTAFF, ItemID.STEAMRUNE);
+        StaffMap.put(ItemID.MYSTIC_LAVA_STAFF, ItemID.LAVARUNE);
 
-        StaffMap.put(ItemID.BRYOPHYTAS_STAFF, ItemID.NATURE_RUNE);
+        StaffMap.put(ItemID.NATURE_STAFF_CHARGED, ItemID.NATURERUNE);
 
-        StaffMap.put(ItemID.KODAI_WAND, ItemID.WATER_RUNE);
-        StaffMap.put(ItemID.KODAI_WAND_23626, ItemID.WATER_RUNE);
+        StaffMap.put(ItemID.KODAI_WAND, ItemID.WATERRUNE);
+        StaffMap.put(ItemID.BR_KODAI_WAND, ItemID.WATERRUNE);
 
         // Required staffs
-        ReqStaffMap.put(ItemID.IBANS_STAFF, new Integer[] {ItemID.IBANS_STAFF});
-        ReqStaffMap.put(ItemID.IBANS_STAFF_U, new Integer[] {ItemID.IBANS_STAFF});
-        ReqStaffMap.put(ItemID.SLAYERS_STAFF, new Integer[] {ItemID.SLAYERS_STAFF});
-        ReqStaffMap.put(ItemID.SLAYERS_STAFF_E, new Integer[] {ItemID.SLAYERS_STAFF});
+        ReqStaffMap.put(ItemID.IBANSTAFF, new Integer[] {ItemID.IBANSTAFF});
+        ReqStaffMap.put(ItemID.IBANSTAFF_UPGRADED, new Integer[] {ItemID.IBANSTAFF});
+        ReqStaffMap.put(ItemID.SLAYER_STAFF, new Integer[] {ItemID.SLAYER_STAFF});
+        ReqStaffMap.put(ItemID.SLAYER_STAFF_ENCHANTED, new Integer[] {ItemID.SLAYER_STAFF});
         ReqStaffMap.put(ItemID.SARADOMIN_STAFF, new Integer[] {ItemID.SARADOMIN_STAFF});
         ReqStaffMap.put(ItemID.GUTHIX_STAFF, new Integer[] {ItemID.GUTHIX_STAFF});
-        ReqStaffMap.put(ItemID.VOID_KNIGHT_MACE, new Integer[] {ItemID.GUTHIX_STAFF});
-        ReqStaffMap.put(ItemID.VOID_KNIGHT_MACE_L, new Integer[] {ItemID.GUTHIX_STAFF});
+        ReqStaffMap.put(ItemID.PEST_VOID_KNIGHT_MACE, new Integer[] {ItemID.GUTHIX_STAFF});
+        ReqStaffMap.put(ItemID.PEST_VOID_KNIGHT_MACE_TROUVER, new Integer[] {ItemID.GUTHIX_STAFF});
         ReqStaffMap.put(ItemID.ZAMORAK_STAFF, new Integer[] {ItemID.ZAMORAK_STAFF});
 
-        ReqStaffMap.put(ItemID.STAFF_OF_THE_DEAD, new Integer[] {ItemID.SLAYERS_STAFF, ItemID.ZAMORAK_STAFF});
-        ReqStaffMap.put(ItemID.STAFF_OF_THE_DEAD_23613, new Integer[] {ItemID.SLAYERS_STAFF, ItemID.ZAMORAK_STAFF});
-        ReqStaffMap.put(ItemID.TOXIC_STAFF_OF_THE_DEAD, new Integer[] {ItemID.SLAYERS_STAFF, ItemID.ZAMORAK_STAFF});
-        ReqStaffMap.put(ItemID.TOXIC_STAFF_UNCHARGED, new Integer[] {ItemID.SLAYERS_STAFF, ItemID.ZAMORAK_STAFF});
-        ReqStaffMap.put(ItemID.STAFF_OF_LIGHT, new Integer[] {ItemID.SLAYERS_STAFF, ItemID.SARADOMIN_STAFF});
-        ReqStaffMap.put(ItemID.STAFF_OF_BALANCE, new Integer[] {ItemID.SLAYERS_STAFF, ItemID.GUTHIX_STAFF});
+        ReqStaffMap.put(ItemID.SOTD, new Integer[] {ItemID.SLAYER_STAFF, ItemID.ZAMORAK_STAFF});
+        ReqStaffMap.put(ItemID.BR_SOTD, new Integer[] {ItemID.SLAYER_STAFF, ItemID.ZAMORAK_STAFF});
+        ReqStaffMap.put(ItemID.TOXIC_SOTD_CHARGED, new Integer[] {ItemID.SLAYER_STAFF, ItemID.ZAMORAK_STAFF});
+        ReqStaffMap.put(ItemID.TOXIC_SOTD, new Integer[] {ItemID.SLAYER_STAFF, ItemID.ZAMORAK_STAFF});
+        ReqStaffMap.put(ItemID.STAFF_OF_LIGHT, new Integer[] {ItemID.SLAYER_STAFF, ItemID.SARADOMIN_STAFF});
+        ReqStaffMap.put(ItemID.STAFF_OF_BALANCE, new Integer[] {ItemID.SLAYER_STAFF, ItemID.GUTHIX_STAFF});
 
         // Tomes
-        TomeMap.put(ItemID.TOME_OF_WATER, ItemID.WATER_RUNE);
-        TomeMap.put(ItemID.TOME_OF_FIRE, ItemID.FIRE_RUNE);
+        TomeMap.put(ItemID.TOME_OF_WATER, ItemID.WATERRUNE);
+        TomeMap.put(ItemID.TOME_OF_FIRE, ItemID.FIRERUNE);
 
         // Ingredients
-        IngredientMap.put(ItemID.UNPOWERED_ORB, ItemID.UNPOWERED_ORB);
-        IngredientMap.put(ItemID.OPAL_BOLTS, ItemID.OPAL_BOLTS);
-        IngredientMap.put(ItemID.JADE_BOLTS, ItemID.JADE_BOLTS);
-        IngredientMap.put(ItemID.PEARL_BOLTS, ItemID.PEARL_BOLTS);
-        IngredientMap.put(ItemID.TOPAZ_BOLTS, ItemID.TOPAZ_BOLTS);
-        IngredientMap.put(ItemID.SAPPHIRE_BOLTS, ItemID.SAPPHIRE_BOLTS);
-        IngredientMap.put(ItemID.EMERALD_BOLTS, ItemID.EMERALD_BOLTS);
-        IngredientMap.put(ItemID.RUBY_BOLTS, ItemID.RUBY_BOLTS);
-        IngredientMap.put(ItemID.DIAMOND_BOLTS, ItemID.DIAMOND_BOLTS);
-        IngredientMap.put(ItemID.DRAGONSTONE_BOLTS, ItemID.DRAGONSTONE_BOLTS);
-        IngredientMap.put(ItemID.ONYX_BOLTS, ItemID.ONYX_BOLTS);
-        IngredientMap.put(ItemID.OPAL_DRAGON_BOLTS, ItemID.OPAL_BOLTS);
-        IngredientMap.put(ItemID.JADE_DRAGON_BOLTS, ItemID.JADE_BOLTS);
-        IngredientMap.put(ItemID.PEARL_DRAGON_BOLTS, ItemID.PEARL_BOLTS);
-        IngredientMap.put(ItemID.TOPAZ_DRAGON_BOLTS, ItemID.TOPAZ_BOLTS);
-        IngredientMap.put(ItemID.SAPPHIRE_DRAGON_BOLTS, ItemID.SAPPHIRE_BOLTS);
-        IngredientMap.put(ItemID.EMERALD_DRAGON_BOLTS, ItemID.EMERALD_BOLTS);
-        IngredientMap.put(ItemID.RUBY_DRAGON_BOLTS, ItemID.RUBY_BOLTS);
-        IngredientMap.put(ItemID.DIAMOND_DRAGON_BOLTS, ItemID.DIAMOND_BOLTS);
-        IngredientMap.put(ItemID.DRAGONSTONE_DRAGON_BOLTS, ItemID.DRAGONSTONE_BOLTS);
-        IngredientMap.put(ItemID.ONYX_DRAGON_BOLTS, ItemID.ONYX_BOLTS);
+        IngredientMap.put(ItemID.STAFFORB, ItemID.STAFFORB);
+        IngredientMap.put(ItemID.OPAL_BOLT, ItemID.OPAL_BOLT);
+        IngredientMap.put(ItemID.XBOWS_CROSSBOW_BOLTS_BLURITE_TIPPED_JADE, ItemID.XBOWS_CROSSBOW_BOLTS_BLURITE_TIPPED_JADE);
+        IngredientMap.put(ItemID.PEARL_BOLT, ItemID.PEARL_BOLT);
+        IngredientMap.put(ItemID.XBOWS_CROSSBOW_BOLTS_STEEL_TIPPED_REDTOPAZ, ItemID.XBOWS_CROSSBOW_BOLTS_STEEL_TIPPED_REDTOPAZ);
+        IngredientMap.put(ItemID.XBOWS_CROSSBOW_BOLTS_MITHRIL_TIPPED_SAPPHIRE, ItemID.XBOWS_CROSSBOW_BOLTS_MITHRIL_TIPPED_SAPPHIRE);
+        IngredientMap.put(ItemID.XBOWS_CROSSBOW_BOLTS_MITHRIL_TIPPED_EMERALD, ItemID.XBOWS_CROSSBOW_BOLTS_MITHRIL_TIPPED_EMERALD);
+        IngredientMap.put(ItemID.XBOWS_CROSSBOW_BOLTS_ADAMANTITE_TIPPED_RUBY, ItemID.XBOWS_CROSSBOW_BOLTS_ADAMANTITE_TIPPED_RUBY);
+        IngredientMap.put(ItemID.XBOWS_CROSSBOW_BOLTS_ADAMANTITE_TIPPED_DIAMOND, ItemID.XBOWS_CROSSBOW_BOLTS_ADAMANTITE_TIPPED_DIAMOND);
+        IngredientMap.put(ItemID.XBOWS_CROSSBOW_BOLTS_RUNITE_TIPPED_DRAGONSTONE, ItemID.XBOWS_CROSSBOW_BOLTS_RUNITE_TIPPED_DRAGONSTONE);
+        IngredientMap.put(ItemID.XBOWS_CROSSBOW_BOLTS_RUNITE_TIPPED_ONYX, ItemID.XBOWS_CROSSBOW_BOLTS_RUNITE_TIPPED_ONYX);
+        IngredientMap.put(ItemID.DRAGON_BOLTS_UNENCHANTED_OPAL, ItemID.OPAL_BOLT);
+        IngredientMap.put(ItemID.DRAGON_BOLTS_UNENCHANTED_JADE, ItemID.XBOWS_CROSSBOW_BOLTS_BLURITE_TIPPED_JADE);
+        IngredientMap.put(ItemID.DRAGON_BOLTS_UNENCHANTED_PEARL, ItemID.PEARL_BOLT);
+        IngredientMap.put(ItemID.DRAGON_BOLTS_UNENCHANTED_TOPAZ, ItemID.XBOWS_CROSSBOW_BOLTS_STEEL_TIPPED_REDTOPAZ);
+        IngredientMap.put(ItemID.DRAGON_BOLTS_UNENCHANTED_SAPPHIRE, ItemID.XBOWS_CROSSBOW_BOLTS_MITHRIL_TIPPED_SAPPHIRE);
+        IngredientMap.put(ItemID.DRAGON_BOLTS_UNENCHANTED_EMERALD, ItemID.XBOWS_CROSSBOW_BOLTS_MITHRIL_TIPPED_EMERALD);
+        IngredientMap.put(ItemID.DRAGON_BOLTS_UNENCHANTED_RUBY, ItemID.XBOWS_CROSSBOW_BOLTS_ADAMANTITE_TIPPED_RUBY);
+        IngredientMap.put(ItemID.DRAGON_BOLTS_UNENCHANTED_DIAMOND, ItemID.XBOWS_CROSSBOW_BOLTS_ADAMANTITE_TIPPED_DIAMOND);
+        IngredientMap.put(ItemID.DRAGON_BOLTS_UNENCHANTED_DRAGONSTONE, ItemID.XBOWS_CROSSBOW_BOLTS_RUNITE_TIPPED_DRAGONSTONE);
+        IngredientMap.put(ItemID.DRAGON_BOLTS_UNENCHANTED_ONYX, ItemID.XBOWS_CROSSBOW_BOLTS_RUNITE_TIPPED_ONYX);
 
         // Products (Enchant Crossbow only)
-        EnchantProducts.add(ItemID.OPAL_BOLTS_E);
-        EnchantProducts.add(ItemID.JADE_BOLTS_E);
-        EnchantProducts.add(ItemID.PEARL_BOLTS_E);
-        EnchantProducts.add(ItemID.TOPAZ_BOLTS_E);
-        EnchantProducts.add(ItemID.SAPPHIRE_BOLTS_E);
-        EnchantProducts.add(ItemID.EMERALD_BOLTS_E);
-        EnchantProducts.add(ItemID.RUBY_BOLTS_E);
-        EnchantProducts.add(ItemID.DIAMOND_BOLTS_E);
-        EnchantProducts.add(ItemID.DRAGONSTONE_BOLTS_E);
-        EnchantProducts.add(ItemID.ONYX_BOLTS_E);
-        EnchantProducts.add(ItemID.OPAL_DRAGON_BOLTS_E);
-        EnchantProducts.add(ItemID.JADE_DRAGON_BOLTS_E);
-        EnchantProducts.add(ItemID.PEARL_DRAGON_BOLTS_E);
-        EnchantProducts.add(ItemID.TOPAZ_DRAGON_BOLTS_E);
-        EnchantProducts.add(ItemID.SAPPHIRE_DRAGON_BOLTS_E);
-        EnchantProducts.add(ItemID.EMERALD_DRAGON_BOLTS_E);
-        EnchantProducts.add(ItemID.RUBY_DRAGON_BOLTS_E);
-        EnchantProducts.add(ItemID.DIAMOND_DRAGON_BOLTS_E);
-        EnchantProducts.add(ItemID.DRAGONSTONE_DRAGON_BOLTS_E);
-        EnchantProducts.add(ItemID.ONYX_DRAGON_BOLTS_E);
+        EnchantProducts.add(ItemID.XBOWS_CROSSBOW_BOLTS_BRONZE_TIPPED_OPAL_ENCHANTED);
+        EnchantProducts.add(ItemID.XBOWS_CROSSBOW_BOLTS_BLURITE_TIPPED_JADE_ENCHANTED);
+        EnchantProducts.add(ItemID.XBOWS_CROSSBOW_BOLTS_IRON_TIPPED_PEARL_ENCHANTED);
+        EnchantProducts.add(ItemID.XBOWS_CROSSBOW_BOLTS_STEEL_TIPPED_REDTOPAZ_ENCHANTED);
+        EnchantProducts.add(ItemID.XBOWS_CROSSBOW_BOLTS_MITHRIL_TIPPED_SAPPHIRE_ENCHANTED);
+        EnchantProducts.add(ItemID.XBOWS_CROSSBOW_BOLTS_MITHRIL_TIPPED_EMERALD_ENCHANTED);
+        EnchantProducts.add(ItemID.XBOWS_CROSSBOW_BOLTS_ADAMANTITE_TIPPED_RUBY_ENCHANTED);
+        EnchantProducts.add(ItemID.XBOWS_CROSSBOW_BOLTS_ADAMANTITE_TIPPED_DIAMOND_ENCHANTED);
+        EnchantProducts.add(ItemID.XBOWS_CROSSBOW_BOLTS_RUNITE_TIPPED_DRAGONSTONE_ENCHANTED);
+        EnchantProducts.add(ItemID.XBOWS_CROSSBOW_BOLTS_RUNITE_TIPPED_ONYX_ENCHANTED);
+        EnchantProducts.add(ItemID.DRAGON_BOLTS_ENCHANTED_OPAL);
+        EnchantProducts.add(ItemID.DRAGON_BOLTS_ENCHANTED_JADE);
+        EnchantProducts.add(ItemID.DRAGON_BOLTS_ENCHANTED_PEARL);
+        EnchantProducts.add(ItemID.DRAGON_BOLTS_ENCHANTED_TOPAZ);
+        EnchantProducts.add(ItemID.DRAGON_BOLTS_ENCHANTED_SAPPHIRE);
+        EnchantProducts.add(ItemID.DRAGON_BOLTS_ENCHANTED_EMERALD);
+        EnchantProducts.add(ItemID.DRAGON_BOLTS_ENCHANTED_RUBY);
+        EnchantProducts.add(ItemID.DRAGON_BOLTS_ENCHANTED_DIAMOND);
+        EnchantProducts.add(ItemID.DRAGON_BOLTS_ENCHANTED_DRAGONSTONE);
+        EnchantProducts.add(ItemID.DRAGON_BOLTS_ENCHANTED_ONYX);
 
     }
 

@@ -13,8 +13,8 @@ import net.runelite.api.ScriptEvent;
 import net.runelite.api.events.ClientTick;
 import net.runelite.api.events.ScriptPostFired;
 import net.runelite.api.events.ScriptPreFired;
+import net.runelite.api.gameval.InterfaceID;
 import net.runelite.api.widgets.Widget;
-import net.runelite.api.widgets.WidgetInfo;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.ConfigChanged;
@@ -58,7 +58,7 @@ public class TooltipCastUpdater {
         if (!active || (!config.enableMenuTooltip() && !config.enableInfoboxes()) || client.getGameState() != GameState.LOGGED_IN || client.isMenuOpen())
             return;
 
-        final List<MenuEntry> entries = new ArrayList<>(Arrays.asList(client.getMenuEntries()));
+        final List<MenuEntry> entries = new ArrayList<>(Arrays.asList(client.getMenu().getMenuEntries()));
         boolean appendToOption = false;
         SpellInfo spellInfoFound = null;
         String formattedSpellInfoName = null;
@@ -75,7 +75,7 @@ public class TooltipCastUpdater {
             // Autocast 'Choose spell' menu replacement
             if (entry.getOption().equals("Choose spell"))
             {
-                final Widget spellIcon = client.getWidget(WidgetInfo.COMBAT_SPELL_ICON);
+                final Widget spellIcon = client.getWidget(InterfaceID.CombatInterface.NORMAL_CONTAINER_GRAPHIC0);
 
                 if (spellIcon == null)
                     continue;
@@ -156,7 +156,7 @@ public class TooltipCastUpdater {
         final SpellInfo target = spellInfoFound;
         boolean isPinned = Text.fromCSV(config.pinnedSpells()).stream().anyMatch(s -> s.equalsIgnoreCase(target.getName()));
 
-        client.createMenuEntry(-1)
+        client.getMenu().createMenuEntry(-1)
                 .setOption(isPinned ? "Unpin" : "Pin")
                 .setTarget(formattedSpellInfoName)
                 .setType(MenuAction.RUNELITE)

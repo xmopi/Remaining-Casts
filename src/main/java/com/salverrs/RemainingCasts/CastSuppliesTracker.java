@@ -9,14 +9,14 @@ import com.salverrs.RemainingCasts.Util.SpellIds;
 import net.runelite.api.Client;
 import net.runelite.api.EnumComposition;
 import net.runelite.api.EnumID;
-import net.runelite.api.InventoryID;
 import net.runelite.api.Item;
 import net.runelite.api.ItemContainer;
-import net.runelite.api.ItemID;
-import net.runelite.api.Varbits;
 import net.runelite.api.events.ItemContainerChanged;
 import net.runelite.api.events.PostClientTick;
 import net.runelite.api.events.VarbitChanged;
+import net.runelite.api.gameval.InventoryID;
+import net.runelite.api.gameval.ItemID;
+import net.runelite.api.gameval.VarbitID;
 import net.runelite.client.eventbus.EventBus;
 import net.runelite.client.eventbus.Subscribe;
 
@@ -28,13 +28,12 @@ import java.util.*;
 public class CastSuppliesTracker {
 
     private static final int[] RUNE_POUCH_RUNE_VARBITS = {
-            Varbits.RUNE_POUCH_RUNE1, Varbits.RUNE_POUCH_RUNE2, Varbits.RUNE_POUCH_RUNE3, Varbits.RUNE_POUCH_RUNE4
+        VarbitID.RUNE_POUCH_TYPE_1, VarbitID.RUNE_POUCH_TYPE_2, VarbitID.RUNE_POUCH_TYPE_3, VarbitID.RUNE_POUCH_TYPE_4
     };
 
     private static final int[] RUNE_POUCH_AMOUNT_VARBITS = {
-            Varbits.RUNE_POUCH_AMOUNT1, Varbits.RUNE_POUCH_AMOUNT2, Varbits.RUNE_POUCH_AMOUNT3, Varbits.RUNE_POUCH_AMOUNT4
+        VarbitID.RUNE_POUCH_QUANTITY_1, VarbitID.RUNE_POUCH_QUANTITY_2, VarbitID.RUNE_POUCH_QUANTITY_3, VarbitID.RUNE_POUCH_QUANTITY_4
     };
-    private static final int FOUNTAIN_OF_RUNES_VARBIT = 4145;
 
     final private Map<Integer, Integer> runeCount = new HashMap<>();
     final private Set<Integer> unlimitedRunes = new HashSet<>();
@@ -128,8 +127,8 @@ public class CastSuppliesTracker {
     {
         unlimitedRunes.clear();
 
-        final ItemContainer inventory = client.getItemContainer(InventoryID.INVENTORY);
-        final ItemContainer equipment = client.getItemContainer(InventoryID.EQUIPMENT);
+        final ItemContainer inventory = client.getItemContainer(InventoryID.INV);
+        final ItemContainer equipment = client.getItemContainer(InventoryID.WORN);
 
         final Item[] inventoryItems = inventory != null ? inventory.getItems() : new Item[] {};
         final Item[] equipmentItems = equipment != null ? equipment.getItems() : new Item[] {};
@@ -140,22 +139,22 @@ public class CastSuppliesTracker {
 
     private void updateInventoryItem(int itemId, int quantity)
     {
-        if (itemId == ItemID.RUNE_POUCH || itemId == ItemID.RUNE_POUCH_L)
+        if (itemId == ItemID.BH_RUNE_POUCH || itemId == ItemID.BH_RUNE_POUCH_TROUVER)
         {
             updateRunePouchItems(false);
             return;
         }
-        else if (itemId == ItemID.DIVINE_RUNE_POUCH || itemId == ItemID.DIVINE_RUNE_POUCH_L)
+        else if (itemId == ItemID.DIVINE_RUNE_POUCH || itemId == ItemID.DIVINE_RUNE_POUCH_TROUVER)
         {
             updateRunePouchItems(true);
             return;
         }
-        else if (itemId == ItemID.RUNE_POUCH_23650) // LMS Rune pouch
+        else if (itemId == ItemID.BR_RUNE_REPLACEMENT) // LMS Rune pouch
         {
             addLMSRunePouch();
             return;
         }
-        else if (itemId == ItemID.RUNE_POUCH_27086) // Emir's Arena Rune pouch (assumed to contain all, unable to get specific runes yet)
+        else if (itemId == ItemID.PVPA_RUNE_REPLACEMENT) // Emir's Arena Rune pouch (assumed to contain all, unable to get specific runes yet)
         {
             addUnlimitedRunes();
             return;
@@ -200,7 +199,7 @@ public class CastSuppliesTracker {
 
     private void checkGlobalVarbits()
     {
-        final boolean nearFountain = client.getVarbitValue(FOUNTAIN_OF_RUNES_VARBIT) == 1;
+        final boolean nearFountain = client.getVarbitValue(VarbitID.FOUNTAIN_OF_RUNE_ACTIVE) == 1;
 
         if (nearFountain)
             addUnlimitedRunes();
@@ -228,10 +227,10 @@ public class CastSuppliesTracker {
 
     private void addLMSRunePouch()
     {
-        runeCount.put(ItemID.WATER_RUNE, Integer.MAX_VALUE);
-        runeCount.put(ItemID.DEATH_RUNE, Integer.MAX_VALUE);
-        runeCount.put(ItemID.BLOOD_RUNE, Integer.MAX_VALUE);
-        runeCount.put(ItemID.SOUL_RUNE, Integer.MAX_VALUE);
+        runeCount.put(ItemID.WATERRUNE, Integer.MAX_VALUE);
+        runeCount.put(ItemID.DEATHRUNE, Integer.MAX_VALUE);
+        runeCount.put(ItemID.BLOODRUNE, Integer.MAX_VALUE);
+        runeCount.put(ItemID.SOULRUNE, Integer.MAX_VALUE);
     }
 
     private void addUnlimitedRunes()
@@ -295,13 +294,13 @@ public class CastSuppliesTracker {
 
     private boolean isRelevantItemContainer(ItemContainer container)
     {
-        return container == client.getItemContainer(InventoryID.INVENTORY)
-            || container == client.getItemContainer(InventoryID.EQUIPMENT);
+        return container == client.getItemContainer(InventoryID.INV)
+            || container == client.getItemContainer(InventoryID.WORN);
     }
 
     private boolean isRelevantVarbit(int varbitId)
     {
-        return varbitId == FOUNTAIN_OF_RUNES_VARBIT ||
+        return varbitId == VarbitID.FOUNTAIN_OF_RUNE_ACTIVE ||
             Arrays.stream(RUNE_POUCH_RUNE_VARBITS).anyMatch(v -> v == varbitId) ||
             Arrays.stream(RUNE_POUCH_AMOUNT_VARBITS).anyMatch(v -> v == varbitId);
     }

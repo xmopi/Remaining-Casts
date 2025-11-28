@@ -11,11 +11,10 @@ import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
 import net.runelite.api.GameState;
 import net.runelite.api.MenuEntry;
-import net.runelite.api.SpriteID;
 import net.runelite.api.events.*;
+import net.runelite.api.gameval.InterfaceID;
+import net.runelite.api.gameval.SpriteID;
 import net.runelite.api.widgets.Widget;
-import net.runelite.api.widgets.WidgetID;
-import net.runelite.api.widgets.WidgetInfo;
 import net.runelite.client.Notifier;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.chat.ChatColorType;
@@ -274,7 +273,7 @@ public class RemainingCastTracker {
 
     private SpellInfo getSpellFromAutocast(RuneChanges changes)
     {
-        final Widget w = client.getWidget(WidgetInfo.COMBAT_SPELL_ICON);
+        final Widget w = client.getWidget(InterfaceID.CombatInterface.NORMAL_CONTAINER_GRAPHIC0);
         if (w == null)
             return null;
 
@@ -500,19 +499,19 @@ public class RemainingCastTracker {
 
     private BufferedImage getSpellBookSprite()
     {
-        final Widget spellBook = client.getWidget(WidgetInfo.RESIZABLE_VIEWPORT_MAGIC_ICON);
+        final Widget spellBook = client.getWidget(InterfaceID.ToplevelOsrsStretch.ICON6);
         return spellBook != null ? spriteManager.getSprite(spellBook.getSpriteId(), 0)
-                : spriteManager.getSprite(SpriteID.TAB_MAGIC, 0);
+                : spriteManager.getSprite(SpriteID.SideiconsInterface.MAGIC, 0);
     }
 
     private boolean isOtherItemContainerWidget(int groupId)
     {
         switch (groupId)
         {
-            case WidgetID.BANK_GROUP_ID:
-            case WidgetID.DEPOSIT_BOX_GROUP_ID:
-            case WidgetID.TRADE_WINDOW_GROUP_ID:
-            case WidgetID.GROUP_STORAGE_GROUP_ID:
+			case InterfaceID.BANKMAIN:
+			case InterfaceID.BANK_DEPOSITBOX:
+			case InterfaceID.TRADEMAIN:
+			case InterfaceID.SHARED_BANK:
                 return true;
             default:
                 return false;
