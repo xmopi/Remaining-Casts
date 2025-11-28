@@ -85,6 +85,7 @@ public class SpellIds {
         Spells.add(new SpellInfo("Crumble Undead", SpriteID.Magicon.CRUMBLE_UNDEAD, new SpellCost(new int[] {ItemID.CHAOSRUNE, ItemID.EARTHRUNE, ItemID.AIRRUNE}, new int[] {1, 2, 2})));
         Spells.add(new SpellInfo("Teleport to House", SpriteID.Magicon2.TELEPORT_TO_HOUSE, new SpellCost(new int[] {ItemID.LAWRUNE, ItemID.AIRRUNE, ItemID.EARTHRUNE}, new int[] {1, 1, 1})));
         Spells.add(new SpellInfo("Wind Blast", SpriteID.Magicon.WIND_BLAST, new SpellCost(new int[] {ItemID.DEATHRUNE, ItemID.AIRRUNE}, new int[] {1, 3})));
+        Spells.add(new SpellInfo("Monster Inspect", SpriteID.Magicon2._49, new SpellCost(new int[] {ItemID.BODYRUNE, ItemID.MINDRUNE}, new int[] {2, 2}))); // Monster Inspect sprite is not named yet
         Spells.add(new SpellInfo("Superheat Item", SpriteID.Magicon.SUPERHEAT_ITEM, new SpellCost(new int[] {ItemID.NATURERUNE, ItemID.FIRERUNE}, new int[] {1, 4})));
         Spells.add(new SpellInfo("Camelot Teleport", SpriteID.Magicon.CAMELOT_TELEPORT, new SpellCost(new int[] {ItemID.LAWRUNE, ItemID.AIRRUNE}, new int[] {1, 5})));
         Spells.add(new SpellInfo("Water Blast", SpriteID.Magicon.WATER_BLAST, new SpellCost(new int[] {ItemID.DEATHRUNE, ItemID.WATERRUNE, ItemID.AIRRUNE}, new int[] {1, 3, 3})));
@@ -94,8 +95,10 @@ public class SpellIds {
         Spells.add(new SpellInfo("Magic Dart", SpriteID.Magicon2.MAGIC_DART, new SpellCost(new int[] {ItemID.SLAYER_STAFF, ItemID.DEATHRUNE, ItemID.MINDRUNE}, new int[] {1, 1, 4})));
         Spells.add(new SpellInfo("Ardougne Teleport", SpriteID.Magicon.ARDOUGNE_TELEPORT, new SpellCost(new int[] {ItemID.LAWRUNE, ItemID.WATERRUNE}, new int[] {2, 2})));
         Spells.add(new SpellInfo("Earth Blast", SpriteID.Magicon.EARTH_BLAST, new SpellCost(new int[] {ItemID.DEATHRUNE, ItemID.EARTHRUNE, ItemID.AIRRUNE}, new int[] {1, 4, 3})));
+        Spells.add(new SpellInfo("Civitas illa Fortis Teleport", SpriteID.Magicon2.CIVITAS_ILLA_FORTIS_TELEPORT, new SpellCost(new int[] {ItemID.LAWRUNE, ItemID.EARTHRUNE, ItemID.FIRERUNE}, new int[] {2, 1, 1})));
         Spells.add(new SpellInfo("High Level Alchemy", SpriteID.Magicon.HIGH_LEVEL_ALCHEMY, new SpellCost(new int[] {ItemID.NATURERUNE, ItemID.FIRERUNE}, new int[] {1, 5})));
         Spells.add(new SpellInfo("Charge Water Orb", SpriteID.Magicon.CHARGE_WATER_ORB, new SpellCost(new int[] {ItemID.COSMICRUNE, ItemID.WATERRUNE, ItemID.STAFFORB}, new int[] {3, 30, 1})));
+        Spells.add(new SpellInfo("Summon Boat", SpriteID.Magicon._51, new SpellCost(new int[] {ItemID.LAWRUNE, ItemID.EARTHRUNE, ItemID.WATERRUNE}, new int[] {2, 1, 1}))); // Summon Boat sprite is not named yet
         Spells.add(new SpellInfo("Lvl-4 Enchant", SpriteID.Magicon.LVL_4_ENCHANT, new SpellCost(new int[] {ItemID.COSMICRUNE, ItemID.EARTHRUNE}, new int[] {1, 10})));
         Spells.add(new SpellInfo("Watchtower Teleport", SpriteID.Magicon.WATCHTOWER_TELEPORT, new SpellCost(new int[] {ItemID.LAWRUNE, ItemID.EARTHRUNE}, new int[] {2, 2})));
         Spells.add(new SpellInfo("Fire Blast", SpriteID.Magicon.FIRE_BLAST, new SpellCost(new int[] {ItemID.DEATHRUNE, ItemID.FIRERUNE, ItemID.AIRRUNE}, new int[] {1, 5, 4})));
@@ -111,6 +114,7 @@ public class SpellIds {
         Spells.add(new SpellInfo("Water Wave", SpriteID.Magicon.WATER_WAVE, new SpellCost(new int[] {ItemID.BLOODRUNE, ItemID.WATERRUNE, ItemID.AIRRUNE}, new int[] {1, 7, 5})));
         Spells.add(new SpellInfo("Charge Air Orb", SpriteID.Magicon.CHARGE_AIR_ORB, new SpellCost(new int[] {ItemID.COSMICRUNE, ItemID.AIRRUNE, ItemID.STAFFORB}, new int[] {3, 30, 1})));
         Spells.add(new SpellInfo("Vulnerability", SpriteID.Magicon.VULNERABILITY, new SpellCost(new int[] {ItemID.SOULRUNE, ItemID.WATERRUNE, ItemID.EARTHRUNE}, new int[] {1, 5, 5})));
+        Spells.add(new SpellInfo("Teleport to Boat", SpriteID.Magicon._50, new SpellCost(new int[] {ItemID.LAWRUNE, ItemID.EARTHRUNE, ItemID.WATERRUNE}, new int[] {2, 2, 2}))); // Teleport to Boat sprite is not named yet
         Spells.add(new SpellInfo("Lvl-5 Enchant", SpriteID.Magicon.LVL_5_ENCHANT, new SpellCost(new int[] {ItemID.COSMICRUNE, ItemID.WATERRUNE, ItemID.EARTHRUNE}, new int[] {1, 15, 15})));
         Spells.add(new SpellInfo("Kourend Castle Teleport", SpriteID.Magicon2.TELEPORT_TO_KOUREND, new SpellCost(new int[] {ItemID.LAWRUNE, ItemID.WATERRUNE, ItemID.FIRERUNE}, new int[] {2, 1, 1})));
         Spells.add(new SpellInfo("Earth Wave", SpriteID.Magicon.EARTH_WAVE, new SpellCost(new int[] {ItemID.BLOODRUNE, ItemID.EARTHRUNE, ItemID.AIRRUNE}, new int[] {1, 7, 5})));
