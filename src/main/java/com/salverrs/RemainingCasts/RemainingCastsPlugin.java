@@ -12,7 +12,7 @@ import net.runelite.client.plugins.PluginDescriptor;
 @PluginDescriptor(
 	name = "Remaining Casts",
 	description = "Displays the number of casts remaining for your spells.",
-	tags = {"remaining","casts","magic","spell","rune","tracker"}
+	tags = {"remaining", "casts", "magic", "spell", "rune", "tracker"}
 )
 public class RemainingCastsPlugin extends Plugin
 {

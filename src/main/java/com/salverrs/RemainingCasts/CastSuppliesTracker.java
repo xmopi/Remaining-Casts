@@ -25,283 +25,309 @@ import javax.inject.Singleton;
 import java.util.*;
 
 @Singleton
-public class CastSuppliesTracker {
+public class CastSuppliesTracker
+{
+	private static final int[] RUNE_POUCH_RUNE_VARBITS = {
+		VarbitID.RUNE_POUCH_TYPE_1, VarbitID.RUNE_POUCH_TYPE_2, VarbitID.RUNE_POUCH_TYPE_3, VarbitID.RUNE_POUCH_TYPE_4
+	};
 
-    private static final int[] RUNE_POUCH_RUNE_VARBITS = {
-        VarbitID.RUNE_POUCH_TYPE_1, VarbitID.RUNE_POUCH_TYPE_2, VarbitID.RUNE_POUCH_TYPE_3, VarbitID.RUNE_POUCH_TYPE_4
-    };
+	private static final int[] RUNE_POUCH_AMOUNT_VARBITS = {
+		VarbitID.RUNE_POUCH_QUANTITY_1, VarbitID.RUNE_POUCH_QUANTITY_2, VarbitID.RUNE_POUCH_QUANTITY_3, VarbitID.RUNE_POUCH_QUANTITY_4
+	};
 
-    private static final int[] RUNE_POUCH_AMOUNT_VARBITS = {
-        VarbitID.RUNE_POUCH_QUANTITY_1, VarbitID.RUNE_POUCH_QUANTITY_2, VarbitID.RUNE_POUCH_QUANTITY_3, VarbitID.RUNE_POUCH_QUANTITY_4
-    };
+	final private Map<Integer, Integer> runeCount = new HashMap<>();
+	final private Set<Integer> unlimitedRunes = new HashSet<>();
+	private RuneChanges lastChanges;
+	private boolean active = false;
+	private boolean requiresPostUpdate = false;
 
-    final private Map<Integer, Integer> runeCount = new HashMap<>();
-    final private Set<Integer> unlimitedRunes = new HashSet<>();
-    private RuneChanges lastChanges;
-    private boolean active = false;
-    private boolean requiresPostUpdate = false;
+	@Inject
+	private Client client;
+	@Inject
+	private EventBus eventBus;
 
-    @Inject
-    private Client client;
-    @Inject
-    private EventBus eventBus;
+	@Subscribe
+	public void onItemContainerChanged(ItemContainerChanged event)
+	{
+		if (!active || !isRelevantItemContainer(event.getItemContainer()))
+		{
+			return;
+		}
 
-    @Subscribe
-    public void onItemContainerChanged(ItemContainerChanged event)
-    {
-        if (!active || !isRelevantItemContainer(event.getItemContainer()))
-            return;
+		updateRuneCount();
+	}
 
-        updateRuneCount();
-    }
+	@Subscribe
+	public void onVarbitChanged(VarbitChanged event)
+	{
+		if (!active || requiresPostUpdate || !isRelevantVarbit(event.getVarbitId()))
+		{
+			return;
+		}
 
-    @Subscribe
-    public void onVarbitChanged(VarbitChanged event)
-    {
-        if (!active || requiresPostUpdate || !isRelevantVarbit(event.getVarbitId()))
-            return;
+		requiresPostUpdate = true;
+	}
 
-        requiresPostUpdate = true;
-    }
+	@Subscribe
+	public void onPostClientTick(PostClientTick event)
+	{
+		if (!requiresPostUpdate)
+		{
+			return;
+		}
 
-    @Subscribe
-    public void onPostClientTick(PostClientTick event)
-    {
-        if (!requiresPostUpdate)
-            return;
+		updateRuneCount();
+		requiresPostUpdate = false;
+	}
 
-        updateRuneCount();
-        requiresPostUpdate = false;
-    }
+	public void start()
+	{
+		active = true;
+		requiresPostUpdate = true;
+	}
 
-    public void start()
-    {
-        active = true;
-        requiresPostUpdate = true;
-    }
+	public void stop()
+	{
+		requiresPostUpdate = false;
+		active = false;
+	}
 
-    public void stop()
-    {
-        requiresPostUpdate = false;
-        active = false;
-    }
+	public Map<Integer, Integer> forceUpdateRuneCount()
+	{
+		updateRuneCount();
+		return runeCount;
+	}
 
-    public Map<Integer, Integer> forceUpdateRuneCount()
-    {
-        updateRuneCount();
-        return runeCount;
-    }
+	public Map<Integer, Integer> getLastRuneCount()
+	{
+		return runeCount;
+	}
 
-    public Map<Integer, Integer> getLastRuneCount()
-    {
-        return runeCount;
-    }
+	private void updateRuneCount()
+	{
+		final Map<Integer, Integer> lastCount, changes;
+		lastCount = new HashMap<>(runeCount);
 
-    private void updateRuneCount()
-    {
-        final Map<Integer, Integer> lastCount, changes;
-        lastCount = new HashMap<>(runeCount);
+		updateCurrentRuneCount();
+		changes = calculateRuneChangesMap(lastCount, runeCount);
 
-        updateCurrentRuneCount();
-        changes = calculateRuneChangesMap(lastCount, runeCount);
+		if (changes.size() != 0)
+		{
+			lastChanges = new RuneChanges(changes, runeCount, unlimitedRunes);
+			eventBus.post(new RunesChanged(lastChanges));
 
-        if (changes.size() != 0)
-        {
-            lastChanges = new RuneChanges(changes, runeCount, unlimitedRunes);
-            eventBus.post(new RunesChanged(lastChanges));
+			final SpellInfo enchant = getEnchantSpellCast(changes);
+			if (enchant != null)
+			{
+				eventBus.post(new BoltsEnchanted(enchant, lastChanges));
+			}
+		}
+	}
 
-            final SpellInfo enchant = getEnchantSpellCast(changes);
-            if (enchant != null)
-                eventBus.post(new BoltsEnchanted(enchant, lastChanges));
-        }
-    }
+	public void updateCurrentRuneCount()
+	{
+		resetRuneCount();
+		updateContainerItems();
+		checkGlobalVarbits();
+	}
 
-    public void updateCurrentRuneCount()
-    {
-        resetRuneCount();
-        updateContainerItems();
-        checkGlobalVarbits();
-    }
+	private void updateContainerItems()
+	{
+		unlimitedRunes.clear();
 
-    private void updateContainerItems()
-    {
-        unlimitedRunes.clear();
+		final ItemContainer inventory = client.getItemContainer(InventoryID.INV);
+		final ItemContainer equipment = client.getItemContainer(InventoryID.WORN);
 
-        final ItemContainer inventory = client.getItemContainer(InventoryID.INV);
-        final ItemContainer equipment = client.getItemContainer(InventoryID.WORN);
+		final Item[] inventoryItems = inventory != null ? inventory.getItems() : new Item[]{};
+		final Item[] equipmentItems = equipment != null ? equipment.getItems() : new Item[]{};
 
-        final Item[] inventoryItems = inventory != null ? inventory.getItems() : new Item[] {};
-        final Item[] equipmentItems = equipment != null ? equipment.getItems() : new Item[] {};
+		Arrays.stream(inventoryItems).forEach(i -> updateInventoryItem(i.getId(), i.getQuantity()));
+		Arrays.stream(equipmentItems).forEach(i -> updateEquipmentItems(i.getId(), i.getQuantity()));
+	}
 
-        Arrays.stream(inventoryItems).forEach(i -> updateInventoryItem(i.getId(), i.getQuantity()));
-        Arrays.stream(equipmentItems).forEach(i -> updateEquipmentItems(i.getId(), i.getQuantity()));
-    }
+	private void updateInventoryItem(int itemId, int quantity)
+	{
+		if (itemId == ItemID.BH_RUNE_POUCH || itemId == ItemID.BH_RUNE_POUCH_TROUVER)
+		{
+			updateRunePouchItems(false);
+			return;
+		}
+		else if (itemId == ItemID.DIVINE_RUNE_POUCH || itemId == ItemID.DIVINE_RUNE_POUCH_TROUVER)
+		{
+			updateRunePouchItems(true);
+			return;
+		}
+		else if (itemId == ItemID.BR_RUNE_REPLACEMENT) // LMS Rune pouch
+		{
+			addLMSRunePouch();
+			return;
+		}
+		else if (itemId == ItemID.PVPA_RUNE_REPLACEMENT) // Emir's Arena Rune pouch (assumed to contain all, unable to get specific runes yet)
+		{
+			addUnlimitedRunes();
+			return;
+		}
 
-    private void updateInventoryItem(int itemId, int quantity)
-    {
-        if (itemId == ItemID.BH_RUNE_POUCH || itemId == ItemID.BH_RUNE_POUCH_TROUVER)
-        {
-            updateRunePouchItems(false);
-            return;
-        }
-        else if (itemId == ItemID.DIVINE_RUNE_POUCH || itemId == ItemID.DIVINE_RUNE_POUCH_TROUVER)
-        {
-            updateRunePouchItems(true);
-            return;
-        }
-        else if (itemId == ItemID.BR_RUNE_REPLACEMENT) // LMS Rune pouch
-        {
-            addLMSRunePouch();
-            return;
-        }
-        else if (itemId == ItemID.PVPA_RUNE_REPLACEMENT) // Emir's Arena Rune pouch (assumed to contain all, unable to get specific runes yet)
-        {
-            addUnlimitedRunes();
-            return;
-        }
+		final Integer[] runes = RuneIds.getRuneIds(itemId);
+		if (runes != null)
+		{
+			Arrays.stream(runes).forEach(r -> updateRuneCount(r, quantity));
+		}
 
-        final Integer[] runes = RuneIds.getRuneIds(itemId);
-        if (runes != null)
-            Arrays.stream(runes).forEach(r -> updateRuneCount(r, quantity));
+		final int ingredient = RuneIds.getIngredientId(itemId);
+		if (ingredient != -1)
+		{
+			updateRuneCount(ingredient, quantity);
+		}
 
-        final int ingredient = RuneIds.getIngredientId(itemId);
-        if (ingredient != -1)
-            updateRuneCount(ingredient, quantity);
+		if (RuneIds.isEnchantProduct(itemId))
+		{
+			updateRuneCount(itemId, quantity);
+		}
 
-        if (RuneIds.isEnchantProduct(itemId))
-            updateRuneCount(itemId, quantity);
+	}
 
-    }
+	private void updateEquipmentItems(int itemId, int quantity)
+	{
+		if (RuneIds.isEnchantProduct(itemId))
+		{
+			updateRuneCount(itemId, quantity);
+		}
 
-    private void updateEquipmentItems(int itemId, int quantity)
-    {
-        if (RuneIds.isEnchantProduct(itemId))
-            updateRuneCount(itemId, quantity);
+		final Integer[] runes = RuneIds.getRuneIdsFromEquipment(itemId);
+		if (runes != null)
+		{
+			Arrays.stream(runes).forEach(r -> {
+				unlimitedRunes.add(r);
+				updateRuneCount(r, Integer.MAX_VALUE);
+			});
+		}
 
-        final Integer[] runes = RuneIds.getRuneIdsFromEquipment(itemId);
-        if (runes != null)
-        {
-            Arrays.stream(runes).forEach(r -> {
-                unlimitedRunes.add(r);
-                updateRuneCount(r, Integer.MAX_VALUE);
-            });
-        }
+		final Integer[] items = RuneIds.getItemIdsFromEquipment(itemId);
+		if (items != null)
+		{
+			Arrays.stream(items).forEach(i -> {
+				unlimitedRunes.add(i);
+				updateRuneCount(i, quantity);
+			});
+		}
+	}
 
-        final Integer[] items = RuneIds.getItemIdsFromEquipment(itemId);
-        if (items != null)
-        {
-            Arrays.stream(items).forEach(i -> {
-                unlimitedRunes.add(i);
-                updateRuneCount(i, quantity);
-            });
-        }
-    }
+	private void checkGlobalVarbits()
+	{
+		final boolean nearFountain = client.getVarbitValue(VarbitID.FOUNTAIN_OF_RUNE_ACTIVE) == 1;
 
-    private void checkGlobalVarbits()
-    {
-        final boolean nearFountain = client.getVarbitValue(VarbitID.FOUNTAIN_OF_RUNE_ACTIVE) == 1;
+		if (nearFountain)
+		{
+			addUnlimitedRunes();
+		}
+	}
 
-        if (nearFountain)
-            addUnlimitedRunes();
-    }
+	private void updateRunePouchItems(boolean isDivine)
+	{
+		final EnumComposition runepouchEnum = client.getEnum(EnumID.RUNEPOUCH_RUNE);
+		final int pouchSize = isDivine ? 4 : 3;
 
-    private void updateRunePouchItems(boolean isDivine)
-    {
-        final EnumComposition runepouchEnum = client.getEnum(EnumID.RUNEPOUCH_RUNE);
-        final int pouchSize = isDivine ? 4 : 3;
+		for (int i = 0; i < pouchSize; i++)
+		{
+			final int id = client.getVarbitValue(RUNE_POUCH_RUNE_VARBITS[i]);
+			final int quantity = client.getVarbitValue(RUNE_POUCH_AMOUNT_VARBITS[i]);
 
-        for (int i = 0; i < pouchSize; i++)
-        {
-            final int id = client.getVarbitValue(RUNE_POUCH_RUNE_VARBITS[i]);
-            final int quantity = client.getVarbitValue(RUNE_POUCH_AMOUNT_VARBITS[i]);
+			if (id == 0 || quantity <= 0)
+			{
+				continue;
+			}
 
-            if (id == 0 || quantity <= 0)
-                continue;
+			final int runeId = runepouchEnum.getIntValue(id);
+			final Integer[] runes = RuneIds.getRuneIds(runeId);
+			if (runes != null)
+			{
+				Arrays.stream(runes).forEach(r -> updateRuneCount(r, quantity));
+			}
+		}
+	}
 
-            final int runeId = runepouchEnum.getIntValue(id);
-            final Integer[] runes = RuneIds.getRuneIds(runeId);
-            if (runes != null)
-                Arrays.stream(runes).forEach(r -> updateRuneCount(r, quantity));
-        }
-    }
+	private void addLMSRunePouch()
+	{
+		runeCount.put(ItemID.WATERRUNE, Integer.MAX_VALUE);
+		runeCount.put(ItemID.DEATHRUNE, Integer.MAX_VALUE);
+		runeCount.put(ItemID.BLOODRUNE, Integer.MAX_VALUE);
+		runeCount.put(ItemID.SOULRUNE, Integer.MAX_VALUE);
+	}
 
-    private void addLMSRunePouch()
-    {
-        runeCount.put(ItemID.WATERRUNE, Integer.MAX_VALUE);
-        runeCount.put(ItemID.DEATHRUNE, Integer.MAX_VALUE);
-        runeCount.put(ItemID.BLOODRUNE, Integer.MAX_VALUE);
-        runeCount.put(ItemID.SOULRUNE, Integer.MAX_VALUE);
-    }
+	private void addUnlimitedRunes()
+	{
+		final Set<Integer> allRuneIds = RuneIds.getAllRuneIds();
+		allRuneIds.forEach(id -> runeCount.put(id, Integer.MAX_VALUE));
+	}
 
-    private void addUnlimitedRunes()
-    {
-        final Set<Integer> allRuneIds = RuneIds.getAllRuneIds();
-        allRuneIds.forEach(id -> runeCount.put(id, Integer.MAX_VALUE));
-    }
+	private void updateRuneCount(int runeId, int quantity)
+	{
+		final Integer currentValue = runeCount.getOrDefault(runeId, null);
+		final long expectedValue = currentValue != null ? (long) currentValue + (long) quantity : (long) quantity;
 
-    private void updateRuneCount(int runeId, int quantity)
-    {
-        final Integer currentValue = runeCount.getOrDefault(runeId, null);
-        final long expectedValue = currentValue != null ? (long)currentValue + (long)quantity : (long)quantity;
+		if (expectedValue >= Integer.MAX_VALUE)
+		{
+			runeCount.put(runeId, Integer.MAX_VALUE);
+		}
+		else
+		{
+			runeCount.put(runeId, (int) expectedValue);
+		}
+	}
 
-        if (expectedValue >= Integer.MAX_VALUE)
-        {
-            runeCount.put(runeId, Integer.MAX_VALUE);
-        }
-        else
-        {
-            runeCount.put(runeId, (int)expectedValue);
-        }
-    }
+	private Map<Integer, Integer> calculateRuneChangesMap(Map<Integer, Integer> oldRunes, Map<Integer, Integer> newRunes)
+	{
+		final Map<Integer, Integer> changeMap = new HashMap<>();
+		final Set<Integer> runeKeys = new HashSet<>(oldRunes.keySet());
+		runeKeys.addAll(newRunes.keySet());
 
-    private Map<Integer, Integer> calculateRuneChangesMap(Map<Integer, Integer> oldRunes, Map<Integer, Integer> newRunes)
-    {
-        final Map<Integer, Integer> changeMap = new HashMap<>();
-        final Set<Integer> runeKeys = new HashSet<>(oldRunes.keySet());
-        runeKeys.addAll(newRunes.keySet());
+		for (Integer runeId : runeKeys)
+		{
+			final int oldQuantity = oldRunes.getOrDefault(runeId, 0);
+			final int newQuantity = newRunes.getOrDefault(runeId, 0);
+			final int change = newQuantity - oldQuantity;
 
-        for (Integer runeId : runeKeys)
-        {
-            final int oldQuantity = oldRunes.getOrDefault(runeId, 0);
-            final int newQuantity = newRunes.getOrDefault(runeId, 0);
-            final int change = newQuantity - oldQuantity;
+			if (change != 0)
+			{
+				changeMap.put(runeId, change);
+			}
+		}
 
-            if (change != 0)
-                changeMap.put(runeId, change);
-        }
+		return changeMap;
+	}
 
-        return changeMap;
-    }
+	private SpellInfo getEnchantSpellCast(Map<Integer, Integer> changes)
+	{
+		for (int itemId : changes.keySet())
+		{
+			final int change = changes.get(itemId);
+			final SpellInfo enchant = SpellIds.getSpellByProduct(itemId, change);
 
-    private SpellInfo getEnchantSpellCast(Map<Integer, Integer> changes)
-    {
-        for (int itemId : changes.keySet())
-        {
-            final int change = changes.get(itemId);
-            final SpellInfo enchant = SpellIds.getSpellByProduct(itemId, change);
+			if (enchant != null)
+			{
+				return enchant;
+			}
+		}
 
-            if (enchant != null)
-                return enchant;
-        }
+		return null;
+	}
 
-        return null;
-    }
+	private void resetRuneCount()
+	{
+		runeCount.clear();
+	}
 
-    private void resetRuneCount()
-    {
-        runeCount.clear();
-    }
+	private boolean isRelevantItemContainer(ItemContainer container)
+	{
+		return container == client.getItemContainer(InventoryID.INV)
+			|| container == client.getItemContainer(InventoryID.WORN);
+	}
 
-    private boolean isRelevantItemContainer(ItemContainer container)
-    {
-        return container == client.getItemContainer(InventoryID.INV)
-            || container == client.getItemContainer(InventoryID.WORN);
-    }
-
-    private boolean isRelevantVarbit(int varbitId)
-    {
-        return varbitId == VarbitID.FOUNTAIN_OF_RUNE_ACTIVE ||
-            Arrays.stream(RUNE_POUCH_RUNE_VARBITS).anyMatch(v -> v == varbitId) ||
-            Arrays.stream(RUNE_POUCH_AMOUNT_VARBITS).anyMatch(v -> v == varbitId);
-    }
+	private boolean isRelevantVarbit(int varbitId)
+	{
+		return varbitId == VarbitID.FOUNTAIN_OF_RUNE_ACTIVE ||
+			Arrays.stream(RUNE_POUCH_RUNE_VARBITS).anyMatch(v -> v == varbitId) ||
+			Arrays.stream(RUNE_POUCH_AMOUNT_VARBITS).anyMatch(v -> v == varbitId);
+	}
 }
